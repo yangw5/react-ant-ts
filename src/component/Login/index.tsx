@@ -5,13 +5,13 @@ function Login() {
 
     let search:(x:any)=>any = function(any){
         console.log('111111111')
-        alert('æœç´¢');
+        alert('ËÑË÷');
     };
     let search2:(x:any)=>any = function(any){
-        alert('æœç´¢2');
+        alert('ËÑË÷2');
     };
     let search3:(x:any)=>any = function(any){
-        alert('æœç´¢3');
+        alert('ËÑË÷3');
     };
     return (
         <div>
