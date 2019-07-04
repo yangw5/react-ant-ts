@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Login from './component/Login';
+import Login from './component/FunctionComponent/Login';
 
 const App: React.FC = () => {
     let a: number[] = [];
