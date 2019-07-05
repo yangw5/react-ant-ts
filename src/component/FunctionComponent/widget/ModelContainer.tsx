@@ -2,12 +2,21 @@ import React, { useState, useEffect } from 'react';
 import { Modal } from 'antd';
 import './ModelContainer.less';
 
+/**
+ * @interface ModelProps interface of props
+ */
 interface ModelProps {
-    children: object;
+    children?: string | JSX.Element;
     title: string;
     visible: boolean;
     styles: number;
+    close: Function;
+    onOk: Function;
 }
+/**
+ *
+ * @param props 父组件传递的参数
+ */
 
 function ModelContainer(props: ModelProps): any {
     let [visible, setvisible] = useState(props.visible);
@@ -15,14 +24,13 @@ function ModelContainer(props: ModelProps): any {
     let { title } = props;
     let _onOK = () => {
         setvisible(true);
+        props.onOk();
     };
     let _closer = () => {
         setvisible(false);
+        props.close();
     };
-    useEffect(() => {
-        setvisible(props.visible);
-        setChildren(props.children);
-    });
+    useEffect(() => {});
     return (
         <Modal
             {...{

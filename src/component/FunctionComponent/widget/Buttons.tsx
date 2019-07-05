@@ -6,8 +6,15 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from 'antd';
 import ModelContainer from '../../ClassCompinent/ModelContainer';
+import ModelContainer2 from './ModelContainer';
 
-function Buttons(props: any) {
+interface Props {
+    search3?: React.MouseEventHandler<HTMLButtonElement>;
+    search2: Function;
+    search: Function;
+}
+
+function Buttons(props: Props) {
     let { search, search2, search3 } = props;
     const [data, setData] = useState({
         count: 0,
@@ -43,6 +50,11 @@ function Buttons(props: any) {
     let close = () => {
         setVisible(false);
     };
+    //  可以在事件处理函数中, 通过指定 泛型变量 t 来 定义 事件的类型.
+    const onSumit = () => {
+        alert(1);
+        setVisible(false);
+    };
 
     return (
         <div>
@@ -52,7 +64,7 @@ function Buttons(props: any) {
                         v.isShow && (
                             <Button
                                 onClick={() => {
-                                    // v.onClick();
+                                    v.onClick();
                                     showModal();
                                 }}
                                 key={v.title}
@@ -63,9 +75,18 @@ function Buttons(props: any) {
                 )}
             </Button.Group>
             {visible ? (
-                <ModelContainer title="提示" visible={visible} styles={999} close={close}>
+                // <ModelContainer title="提示" visible={visible} styles={999} close={close}>
+                //     <p>可以</p>
+                // </ModelContainer>
+                <ModelContainer2
+                    title="提示"
+                    visible={visible}
+                    styles={999}
+                    close={close}
+                    onOk={onSumit}
+                >
                     <p>可以</p>
-                </ModelContainer>
+                </ModelContainer2>
             ) : (
                 ''
             )}
