@@ -1,7 +1,11 @@
 import React from 'react';
+import FormInput from '../widget/FormInput';
 import Buttons from '../widget/Buttons';
+import { Form } from 'antd';
 
-function Login() {
+// import { FormInput, Buttons } from '../widget';
+
+function Login(props: any) {
     let search: (x: any) => any = function(any) {
         alert('搜索');
     };
@@ -12,6 +16,7 @@ function Login() {
         alert(e);
         alert(pd('1'));
     };
+
     let pd = function padLeft(padding: string | number) {
         if (typeof padding === 'number') {
             alert(1);
@@ -25,9 +30,14 @@ function Login() {
     return (
         <div>
             <button onClick={search3}>判断</button>
+            <Form>
+                <FormInput />
+            </Form>
+
             <Buttons search={search} search2={search2} search3={search3} />
         </div>
     );
 }
 
+//Form.create 包装的组件将会自带 this.props.form 属性，this.props.form 提供的 API
 export default Login;
