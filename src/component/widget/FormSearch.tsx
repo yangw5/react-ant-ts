@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import FormGather from './FormGather';
-import { Button } from 'antd';
+import ButtonGroup from './ButtonGroup';
+import { Divider } from 'antd';
 
 interface FormSearchProps {
     onSubmit: (values: any) => void;
@@ -9,22 +10,34 @@ interface FormSearchProps {
 const FormSearch = ({ onSubmit }: FormSearchProps) => {
     const formFields = [
         { label: '关键字', field: 'name', fieldType: 'input' },
-        { label: '类型', field: 'type', fieldType: 'input' },
-        { label: '爱好', field: 'type2', fieldType: 'input' },
-        { label: '活动', field: 'type3', fieldType: 'input' },
+        {
+            label: '类型',
+            field: 'type',
+            fieldType: 'select',
+            options: [
+                { id: 1, name: 'JPG', value: 'JPG' },
+                { id: 2, name: 'GIF', value: 'GIF' },
+                { id: 2, name: 'PNG', value: 'PNG' },
+            ],
+        },
     ];
+    let rest = () => {
+        alert('重置');
+    };
     return (
         <div>
             <FormGather fields={formFields} />
-            <div>
-                <Button
-                    onClick={(value: any): any => {
+            <ButtonGroup
+                {...{
+                    onSumit: (value: any) => {
                         onSubmit('1');
-                    }}
-                >
-                    提交
-                </Button>
-            </div>
+                    },
+                    onRest: () => {
+                        rest();
+                    },
+                }}
+            />
+            <Divider style={{ margin: '20px 0' }} />
         </div>
     );
 };

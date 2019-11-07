@@ -41,9 +41,9 @@ const App: React.FC = () => {
                         onSubmit('1');
                     }}
                 />
-                <header className="App-header">
+                {/* <header className="App-header">
                     <Login />
-                </header>
+                </header> */}
             </BrowserRouter>
         </div>
     );
