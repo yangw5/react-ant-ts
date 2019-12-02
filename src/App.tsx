@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter } from 'react-router-dom';
 import { Login, Y5Breadcrumb, Y5Tag } from './component/allcomponent';
 import FormSearch from './component/widget/FormSearch';
+let imgsrc = require('./assets/img/m1.jfif');
 
 const App: React.FC = () => {
     let a: number[] = [];
@@ -21,6 +22,9 @@ const App: React.FC = () => {
     };
     let onSubmit = (values: any): void => {
         alert(values);
+    };
+    let showImgSource = (): any => {
+        alert('显示');
     };
     // let tag = {
     //     tags: [{ value: '主' }, { value: '次' }],
@@ -44,6 +48,15 @@ const App: React.FC = () => {
                 {/* <header className="App-header">
                     <Login />
                 </header> */}
+                <img
+                    src={imgsrc}
+                    alt="测试"
+                    width="100"
+                    height="100"
+                    onClick={() => {
+                        showImgSource();
+                    }}
+                />
             </BrowserRouter>
         </div>
     );
