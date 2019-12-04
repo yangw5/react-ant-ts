@@ -5,9 +5,10 @@ import { Divider } from 'antd';
 
 interface FormSearchProps {
     onSubmit: (values: any) => void;
+    onRest: () => void;
     initialParams?: any;
 }
-const FormSearch = ({ onSubmit }: FormSearchProps) => {
+const FormSearch = ({ onSubmit, onRest }: FormSearchProps) => {
     const formFields = [
         { label: '关键字', field: 'name', fieldType: 'input' },
         {
@@ -22,7 +23,7 @@ const FormSearch = ({ onSubmit }: FormSearchProps) => {
         },
     ];
     let rest = () => {
-        alert('重置');
+        onRest && onRest();
     };
     return (
         <div>
