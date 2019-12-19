@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Login, Y5Breadcrumb, Y5Tag } from './component/allcomponent';
 import FormSearch from './component/widget/FormSearch';
 import ImgList from './component/widget/ImgList';
-var _ = require('lodash');
+let _ = require('lodash');
 let imgsrc1 = require('./assets/img/m1.jfif');
 let imgsrc2 = require('./assets/img/m2.jfif');
 let imgsrc3 = require('./assets/img/m3.jfif');
@@ -18,6 +18,7 @@ let imgsrc10 = require('./assets/img/m10.jfif');
 let imgsrc11 = require('./assets/img/m11.jfif');
 
 interface imgObj {
+    id: string;
     name: string;
     width: number;
     height: number;
@@ -41,71 +42,40 @@ const App: FC = () => {
     };
     let astimgArry: imgObj[] = [
         {
+            id: 'm1',
             name: '杨小五',
             width: 150,
             height: 150,
             md5: imgsrc1,
         },
         {
+            id: 'm2',
             name: '杨2五',
             width: 151,
             height: 110,
             md5: imgsrc2,
         },
         {
-            name: '杨3五',
+            id: 'm3',
+            name: '邓紫棋',
             width: 120,
             height: 122,
             md5: imgsrc3,
         },
         {
+            id: 'm4',
             name: '杨4五',
             width: 120,
             height: 130,
             md5: imgsrc4,
         },
-        {
-            name: '杨5五',
-            width: 150,
-            height: 150,
-            md5: imgsrc5,
-        },
-        {
-            name: '杨6五',
-            width: 160,
-            height: 156,
-            md5: imgsrc5,
-        },
-        {
-            name: '杨7五',
-            width: 157,
-            height: 150,
-            md5: imgsrc7,
-        },
-        {
-            name: '杨8五',
-            width: 150,
-            height: 180,
-            md5: imgsrc8,
-        },
-        {
-            name: '杨9五',
-            width: 159,
-            height: 190,
-            md5: imgsrc9,
-        },
-        {
-            name: '杨10五',
-            width: 150,
-            height: 150,
-            md5: imgsrc10,
-        },
-        {
-            name: '杨11五',
-            width: 110,
-            height: 11,
-            md5: imgsrc11,
-        },
+        { id: 'm5', name: '杨5五', width: 150, height: 150, md5: imgsrc5 },
+        { id: 'm6', name: '杨6五', width: 160, height: 156, md5: imgsrc6 },
+        { id: 'm7', name: '杰伦周', width: 157, height: 150, md5: imgsrc7 },
+        { id: 'm8', name: '周杰伦', width: 150, height: 180, md5: imgsrc8 },
+        { id: 'm9', name: '杨9五', width: 159, height: 190, md5: imgsrc9 },
+        { id: 'm10', name: '黄圣依', width: 150, height: 150, md5: imgsrc10 },
+        { id: 'm11', name: '张靓颖', width: 110, height: 11, md5: imgsrc11 },
     ];
     let [imgArry, setImgArry] = useState(astimgArry);
     let onSubmit = (values: any): void => {
